@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>여행을 좋아하는 사람</title>
+<meta name="description" content="일본, 제주, 동해에서 기억에 남은 순간들을 모아 둔 여행 소개 페이지">
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink:#1d2b26; --muted:#4d5d56; --bg:#f8faf7;
+  --bamboo:#2f5d3a; --bamboo-l:#e5efdf;
+  --sky:#1f4e79; --sky-l:#dce9f3;
+  --sea:#0e5f66; --sea-l:#d8eceb;
+  --sun:#e08a3c;
+  --serif:"Gowun Batang","Noto Serif KR",serif;
+  --sans:"Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+}
+* { box-sizing:border-box; }
+html { scroll-behavior:smooth; scroll-padding-top:72px; }
+@media (prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } }
+body { margin:0; color:var(--ink); background:var(--bg); font-family:var(--sans); line-height:1.8; font-size:17px; }
+a { color:inherit; }
+img { max-width:100%; display:block; }
+
+/* 상단 메뉴 */
+.nav { position:sticky; top:0; z-index:10; background:rgba(248,250,247,.94); backdrop-filter:blur(8px); border-bottom:1px solid #dfe7e1; }
+.nav-in { max-width:1040px; margin:0 auto; padding:14px 24px; display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap; }
+.brand { font-family:var(--serif); font-weight:700; font-size:20px; text-decoration:none; }
+.nav ul { list-style:none; margin:0; padding:0; display:flex; gap:22px; flex-wrap:wrap; font-size:15px; font-weight:500; }
+.nav ul a { text-decoration:none; color:var(--muted); padding:4px 0; border-bottom:2px solid transparent; }
+.nav ul a:hover, .nav ul a:focus-visible { color:var(--ink); border-bottom-color:var(--sun); outline:none; }
+
+/* 첫 화면 */
+.hero { position:relative; min-height:78vh; display:flex; align-items:flex-end; color:#fff;
+  background:linear-gradient(180deg,rgba(14,28,36,.15) 0%,rgba(14,28,36,.78) 100%), url("photos/jeju2.jpg") center 60%/cover no-repeat #23384a; }
+.hero-in { max-width:1040px; width:100%; margin:0 auto; padding:120px 24px 64px; }
+.hero h1 { margin:0 0 16px; font-family:var(--serif); font-size:clamp(38px,8vw,72px); line-height:1.2; }
+.hero p { margin:0 0 28px; max-width:30em; font-size:clamp(17px,2.4vw,20px); }
+.btn { display:inline-block; padding:12px 26px; border-radius:999px; background:#fff; color:var(--ink); font-weight:700; text-decoration:none; }
+.btn:hover, .btn:focus-visible { background:var(--sun); outline:none; }
+
+/* 공통 */
+section { padding:84px 24px; }
+.wrap { max-width:1040px; margin:0 auto; }
+h2 { margin:0 0 12px; font-family:var(--serif); font-size:clamp(28px,5vw,40px); line-height:1.3; }
+.lead { margin:0 0 40px; max-width:34em; color:var(--muted); }
+
+/* 소개 */
+.about { background:#fff; }
+.about-grid { display:grid; gap:40px; grid-template-columns:1fr 1fr; align-items:start; }
+.about p { margin:0 0 1em; }
+.likes { display:flex; flex-wrap:wrap; gap:10px; list-style:none; margin:0; padding:0; }
+.likes li { padding:8px 16px; border-radius:999px; background:var(--bamboo-l); color:var(--bamboo); font-weight:500; font-size:15px; }
+.likes li:nth-child(3n+2) { background:var(--sky-l); color:var(--sky); }
+.likes li:nth-child(3n) { background:var(--sea-l); color:var(--sea); }
+
+/* 여행 스타일 */
+.cards { display:grid; gap:20px; grid-template-columns:repeat(3,1fr); }
+.card { background:#fff; border:1px solid #dfe7e1; border-radius:12px; padding:26px; }
+.card h3 { margin:0 0 8px; font-family:var(--serif); font-size:21px; }
+.card p { margin:0; color:var(--muted); font-size:16px; }
+
+/* 여행기 */
+.trip.japan { background:var(--bamboo-l); } .japan h2 { color:var(--bamboo); }
+.trip.jeju  { background:var(--sky-l); }    .jeju h2  { color:var(--sky); }
+.trip.donghae { background:var(--sea-l); }  .donghae h2 { color:var(--sea); }
+.route { margin:0 0 20px; font-weight:700; color:var(--bamboo); }
+.tag { margin:0 0 6px; font-size:15px; font-weight:500; color:var(--muted); }
+.trip-grid { display:grid; gap:44px; grid-template-columns:1fr 1fr; align-items:center; }
+.trip-grid.flip .photos { order:2; }
+.trip .story p { margin:0 0 1em; }
+.photos { display:grid; gap:14px; }
+.photos img { width:100%; height:auto; border-radius:10px; box-shadow:0 6px 24px rgba(20,40,30,.14); }
+.photos figcaption { margin-top:8px; font-size:14px; color:var(--muted); }
+.photos figure { margin:0; }
+.photos.tall img { aspect-ratio:3/4; object-fit:cover; object-position:center 62%; }
+
+footer { padding:44px 24px 64px; text-align:center; background:var(--ink); color:#cfdad3; font-size:15px; }
+footer a { color:#fff; }
+
+@media (max-width:760px) {
+  section { padding:60px 20px; }
+  .about-grid, .trip-grid, .cards { grid-template-columns:1fr; }
+  .trip-grid.flip .photos { order:0; }
+  .hero { min-height:70vh; }
+  .nav ul { gap:16px; }
+}
+</style>
+</head>
+<body>
+
+<nav class="nav" aria-label="메뉴">
+  <div class="nav-in">
+    <a class="brand" href="#top">여행 기록</a>
+    <ul>
+      <li><a href="#about">소개</a></li>
+      <li><a href="#style">여행 스타일</a></li>
+      <li><a href="#japan">일본</a></li>
+      <li><a href="#jeju">제주</a></li>
+      <li><a href="#donghae">동해</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="hero-in">
+    <h1>안녕하세요</h1>
+    <p>바다와 대나무숲, 맛있는 한 끼를 좋아해요. 다녀온 세 곳에서 기억에 남은 것들을 모아 두었어요.</p>
+    <a class="btn" href="#about">소개 보기</a>
+  </div>
+</header>
+
+<section class="about" id="about">
+  <div class="wrap about-grid">
+    <div>
+      <h2>저는 이런 사람이에요</h2>
+      <p>여행에서는 빽빽한 일정보다 한 장면이 오래 남더라고요. 대나무숲에 다녀온 뒤로 대나무를 좋아하게 됐고, 바다는 발을 담그고 한 시간 넘게 봐도 좋았어요.</p>
+      <p>여행마다 저에 대해 조금씩 알게 됐어요. 그 이야기를 여기에 차곡차곡 적어 둘게요.</p>
+    </div>
+    <div>
+      <h2>좋아하는 것</h2>
+      <ul class="likes">
+        <li>바다 보기</li>
+        <li>대나무숲</li>
+        <li>야외 온천</li>
+        <li>말차라떼</li>
+        <li>카이막</li>
+        <li>단새우회</li>
+        <li>스시</li>
+        <li>스테이크덮밥</li>
+        <li>하늘 구경</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="style">
+  <div class="wrap">
+    <h2>나의 여행 스타일</h2>
+    <p class="lead">세 번의 여행에서 알게 된 것들이에요.</p>
+    <div class="cards">
+      <div class="card">
+        <h3>분 단위 계획은 버거워요</h3>
+        <p>일본에서 언니의 촘촘한 계획을 따라가며, 기억이 흐릿해질 만큼 바빴다는 걸 알았어요.</p>
+      </div>
+      <div class="card">
+        <h3>자세한 계획은 쉽지 않아요</h3>
+        <p>동해에서 직접 자세하게 계획을 짜 보니, 계획을 자세히 짜는 과정이 쉽지 않다는 걸 느꼈어요.</p>
+      </div>
+      <div class="card">
+        <h3>하늘과 바다는 오래 남아요</h3>
+        <p>제주에서 본 하늘, 동해에서 발을 담그고 보낸 한 시간처럼 풍경이 기억에 오래 남아요.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="trip japan" id="japan">
+  <div class="wrap trip-grid">
+    <div class="photos">
+      <figure>
+        <img src="photos/japan1.jpg" width="1136" height="852" alt="햇빛이 비치는 대나무숲 길" loading="lazy">
+        <figcaption>빛이 들어오던 대나무숲 길</figcaption>
+      </figure>
+    </div>
+    <div class="story">
+      <p class="tag">2016년 2월 · 언니와 함께</p>
+      <h2>일본</h2>
+      <p class="route">간사이 → 고베 → 교토 → 오사카</p>
+      <p>파워J 언니의 분 단위 계획이 솔직히 조금 버거웠어요. 그래서 기억이 흐릿한 부분이 많은데, 대나무숲만큼은 또렷해요. 정말 좋았고, 그 뒤로 대나무를 좋아하게 됐어요.</p>
+      <p>말차라떼와 편의점 음식이 맛있었고, 스시와 스테이크덮밥도 기억에 남아요.</p>
+      <p>다시 사진을 보니 우리 언니가 너무너무 예뻤어요.</p>
+    </div>
+  </div>
+</section>
+
+<section class="trip jeju" id="jeju">
+  <div class="wrap trip-grid flip">
+    <div class="photos">
+      <figure>
+        <img src="photos/jeju2.jpg" width="1600" height="1200" alt="난간 너머로 해가 지는 바다" loading="lazy">
+        <figcaption>해가 지던 바다</figcaption>
+      </figure>
+      <figure>
+        <img src="photos/jeju1.jpg" width="1200" height="1600" alt="수평선까지 이어지는 푸른 바다" loading="lazy" style="aspect-ratio:4/3;object-fit:cover;object-position:center 70%;border-radius:10px;box-shadow:0 6px 24px rgba(20,40,30,.14)">
+        <figcaption>끝없이 이어진 푸른 바다</figcaption>
+      </figure>
+    </div>
+    <div class="story">
+      <p class="tag">2025년 · 친구와 함께</p>
+      <h2>제주도</h2>
+      <p>전동바이크를 타며 본 하늘이 정말 예뻤어요. 고기국수는 유명한 곳에서 웨이팅까지 해서 먹었는데 생각보다 아쉬웠고, 카이막이 정말 맛있었어요.</p>
+      <p>친구가 추천한 카페도 예뻤고, 거기서 바다를 보는 시간이 좋았어요. 한겨울의 야외 온천도 정말 좋았어요. 다만 바람이 많이 불고 밤이 되면 엄청 어두워서 조금 무서웠어요.</p>
+      <p>감귤은 생각보다 아쉬웠는데, 집에 와서 먹으니 맛있었어요.</p>
+    </div>
+  </div>
+</section>
+
+<section class="trip donghae" id="donghae">
+  <div class="wrap trip-grid">
+    <div class="photos tall">
+      <figure>
+        <img src="photos/donghae1.jpg" width="903" height="1600" alt="파도가 닿는 자갈 해변과 푸른 바다" loading="lazy">
+        <figcaption>파도가 닿던 자갈 해변</figcaption>
+      </figure>
+    </div>
+    <div class="story">
+      <p class="tag">2023년 · 엄마와 함께</p>
+      <h2>동해</h2>
+      <p>엄마와 가는 여행이라 이번엔 내가 파워J가 되어 아주 자세하게 계획을 짰어요. 계획을 자세히 짜는 과정이 쉽지 않다는 걸 느꼈어요.</p>
+      <p>단새우회를 먹었는데 너무 맛있었고, 엄마가 정말 좋아해서 더 좋았어요. 바다 보는 걸 엄청 좋아해서 발을 담그고 1시간 넘게 있었어요.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>다음엔 어디로 갈까요? <a href="#top">맨 위로</a></p>
+</footer>
+
+</body>
+</html>
