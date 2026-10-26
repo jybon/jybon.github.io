@@ -1,7 +1,90 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head><meta charset="utf-8"><title>내 페이지</title></head>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>내가 다녀온 세 곳</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root { --ink:#1c2822; --bamboo:#e3eedc; --bamboo-d:#2f5d3a; --sky:#dbe8f3; --sky-d:#1f4e79; --sea:#d6ecec; --sea-d:#0e5f66; }
+* { box-sizing: border-box; }
+body { margin:0; color:var(--ink); background:#f7faf8; font-family:"Gowun Batang","Noto Serif KR",serif; line-height:1.85; font-size:18px; }
+header { padding:72px 24px 48px; max-width:720px; margin:0 auto; }
+header h1 { margin:0 0 12px; font-size:clamp(34px,7vw,52px); line-height:1.25; }
+header p { margin:0; max-width:34em; }
+.trip { padding:64px 24px; }
+.trip > div { max-width:720px; margin:0 auto; }
+.trip h2 { margin:0 0 4px; font-size:clamp(26px,5vw,36px); line-height:1.3; }
+.when { margin:0 0 28px; font-size:16px; opacity:.8; }
+.trip p.story { margin:0 0 1.1em; max-width:36em; }
+.japan { background:var(--bamboo); } .japan h2 { color:var(--bamboo-d); }
+.jeju  { background:var(--sky); }    .jeju h2  { color:var(--sky-d); }
+.donghae { background:var(--sea); }  .donghae h2 { color:var(--sea-d); }
+.photos { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:12px; margin-top:32px; }
+.photos img { width:100%; aspect-ratio:4/3; object-fit:cover; border-radius:6px; display:block; }
+footer { padding:32px 24px 56px; text-align:center; font-size:15px; opacity:.7; }
+</style>
+</head>
 <body>
-  <h1>안녕하세요!</h1>
+
+<header>
+  <h1>내가 다녀온 세 곳</h1>
+  <p>일본, 제주, 동해. 그곳에서 기억에 남은 것들을 적어 두었어요.</p>
+</header>
+
+<!-- 사진 넣는 법: photos 폴더에 japan1.jpg, japan2.jpg … 처럼 저장하면 자동으로 보여요.
+     사진이 없는 칸은 저절로 사라집니다. -->
+
+<section class="trip japan">
+  <div>
+    <h2>일본 간사이</h2>
+    <p class="when">2016년 2월, 언니와 함께 (고베, 교토, 오사카)</p>
+    <p class="story">파워J 언니의 분 단위 계획이 솔직히 조금 버거웠어요. 그래서 기억이 흐릿한 부분이 많은데, 대나무숲만큼은 또렷해요. 정말 좋았고, 그 뒤로 대나무를 좋아하게 됐어요.</p>
+    <p class="story">말차라떼와 편의점 음식이 맛있었고, 스시와 스테이크덮밥도 기억에 남아요.</p>
+    <p class="story">다시 사진을 보니 우리 언니가 너무너무 예뻤어요.</p>
+    <div class="photos">
+      <img src="photos/japan1.jpg" alt="일본 여행 사진 1" loading="lazy" onerror="this.remove()">
+      <img src="photos/japan2.jpg" alt="일본 여행 사진 2" loading="lazy" onerror="this.remove()">
+      <img src="photos/japan3.jpg" alt="일본 여행 사진 3" loading="lazy" onerror="this.remove()">
+      <img src="photos/japan4.jpg" alt="일본 여행 사진 4" loading="lazy" onerror="this.remove()">
+    </div>
+  </div>
+</section>
+
+<section class="trip jeju">
+  <div>
+    <h2>제주도</h2>
+    <p class="when">2025년, 친구와 함께</p>
+    <p class="story">전동바이크를 타며 본 하늘이 정말 예뻤어요. 고기국수는 유명한 곳에서 웨이팅까지 해서 먹었는데 생각보다 아쉬웠고, 카이막이 정말 맛있었어요.</p>
+    <p class="story">친구가 추천한 카페도 예뻤고, 거기서 바다를 보는 시간이 좋았어요. 한겨울의 야외 온천도 정말 좋았어요. 다만 바람이 많이 불고 밤이 되면 엄청 어두워서 조금 무서웠어요.</p>
+    <p class="story">감귤은 생각보다 아쉬웠는데, 집에 와서 먹으니 맛있었어요.</p>
+    <div class="photos">
+      <img src="photos/jeju1.jpg" alt="제주도 여행 사진 1" loading="lazy" onerror="this.remove()">
+      <img src="photos/jeju2.jpg" alt="제주도 여행 사진 2" loading="lazy" onerror="this.remove()">
+      <img src="photos/jeju3.jpg" alt="제주도 여행 사진 3" loading="lazy" onerror="this.remove()">
+      <img src="photos/jeju4.jpg" alt="제주도 여행 사진 4" loading="lazy" onerror="this.remove()">
+    </div>
+  </div>
+</section>
+
+<section class="trip donghae">
+  <div>
+    <h2>동해</h2>
+    <p class="when">2023년, 엄마와 함께</p>
+    <p class="story">엄마와 가는 여행이라 이번엔 내가 파워J가 되어 아주 자세하게 계획을 짰어요. 계획을 짜는 과정과 변수 때문에 스트레스를 받았고, 나는 디테일한 계획을 선호하지 않는다는 걸 깨달았어요. 굵직하게 큰 흐름만 짜는 쪽이 나에게 맞는 것 같아요.</p>
+    <p class="story">단새우회를 먹었는데 너무 맛있었고, 엄마가 정말 좋아해서 더 좋았어요. 바다 보는 걸 엄청 좋아해서 발을 담그고 1시간 넘게 있었어요.</p>
+    <div class="photos">
+      <img src="photos/donghae1.jpg" alt="동해 여행 사진 1" loading="lazy" onerror="this.remove()">
+      <img src="photos/donghae2.jpg" alt="동해 여행 사진 2" loading="lazy" onerror="this.remove()">
+      <img src="photos/donghae3.jpg" alt="동해 여행 사진 3" loading="lazy" onerror="this.remove()">
+      <img src="photos/donghae4.jpg" alt="동해 여행 사진 4" loading="lazy" onerror="this.remove()">
+    </div>
+  </div>
+</section>
+
+<footer>다음엔 어디로 갈까요?</footer>
+
 </body>
 </html>
